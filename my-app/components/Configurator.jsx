@@ -1,12 +1,10 @@
-"use client";
 
-function Configurator(updateOptions) {
-
+function Configurator({exterior, interior, wheel, updateOptions}) {
   const exteriorSwatch = [
-   {
-    id: 0,
-    name:"Sun Soaked",
-    src: "/swatch/sun_soaked.png",
+    {
+      id: 0,
+      name: "Sun Soaked",
+      src: "/swatch/sun_soaked.png",
     },
     {
       id: 1,
@@ -35,6 +33,7 @@ function Configurator(updateOptions) {
     }
   ]
 
+
   const interiorSwatch = [
     {
       id: 0,
@@ -47,22 +46,16 @@ function Configurator(updateOptions) {
       src: "/swatch/interior/light.png",
     },
   ];
-
   const wheels = [
     {
       id: 0,
       name: "SlipStream Black",
-      src: "/wheels/slipstream_black.webp",
+      src: "/wheels/wheel1.png",
     },
     {
       id: 1,
-      name: "aerostealth",
-      src: "/wheels/aerostealth.webp",
-    },
-    {
-      id: 2,
-      name: "vortex",
-      src: "/wheels/vortex.webp",
+      name: "Vortex",
+      src: "/wheels/wheel2.png",
     },
   ];
 
@@ -81,19 +74,15 @@ function Configurator(updateOptions) {
       <div className="my-3">
         <h3 className="font-bold uppercase mb-3">Exterior Color</h3>
         <div className="flex gap-2">
-          {exteriorSwatch.map((exterior) => (
+        {exteriorSwatch.map((exterior) => (
             <button
               key={exterior.id}
               onClick={() => updateOptions("exterior",exterior.name)}
               className={`hover:scale-105 transition-transform duration-100  ${
-                exterior.id === 0 ? "border-2 border-blue-300 rounded-full" : ""
+                exterior === exterior.name ? "border-2 border-blue-300 rounded-full" : ""
               }`}
             >
-              <img
-                src={exterior.src}
-                alt="Black Pearl"
-                className="w-12"
-              />
+              <img src={exterior.src} alt="Black Pearl" className="w-12" />
             </button>
           ))}
         </div>
@@ -106,9 +95,9 @@ function Configurator(updateOptions) {
           {interiorSwatch.map((color) => (
             <button
               key={color.id}
-              onClick={() =>updateOptions("interior",color.name)}
+              onClick={() => updateOptions("interior",color.name)}
               className={`hover:scale-105 transition-transform duration-100  ${
-                color.id === 0 ? "border-2 border-blue-300 rounded-full" : ""
+                color.name === interior ? "border-2 border-blue-300 rounded-full" : ""
               }`}
             >
               <img src={color.src} alt="Black Pearl" className="w-12" />
@@ -126,10 +115,10 @@ function Configurator(updateOptions) {
               key={wheel.id}
               onClick={() => updateOptions("wheel",wheel.name)}
               className={`hover:scale-105 transition-transform duration-100  ${
-                wheel.id === 0 ? "border-2 border-blue-300 rounded-full" : ""
+                wheel.name === wheel ? "border-2 border-blue-300 rounded-full" : ""
               }`}
             >
-              <img src={wheel.src} alt="Black Pearl" className="w-12" />
+              <img src={wheel.src} alt="Black Pearl" className="w-20" />
             </button>
           ))}
         </div>

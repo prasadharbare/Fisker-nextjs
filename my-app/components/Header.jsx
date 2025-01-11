@@ -18,7 +18,7 @@ function Header() {
           className="w-12 sm:w-16 h-auto cursor-pointer hover:scale-110 transition-transform duration-100"
         />
         {/* Region */}
-        <a className="flex gap-2 items-center">
+        <a className="flex gap-2 items-center cursor-pointer">
           <Image src="globe.svg" width={20} height={20} alt="Globe Icon" />
           <p className="text-sm sm:text-base">US</p>
         </a>

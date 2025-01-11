@@ -1,17 +1,16 @@
 import Image from "next/image";
-import config from "@/app/assets/Config.json";
-console.log("configs");
+import configs from "@/app/assets/Config.json";
 
 function Preview({
-  color = "Black Pearl",//black_pearl, red_planet, sea_grass, stealth_green, blue_planet
-  interior="white",//dark, light
-  wheel = "SlipStream Black",//aerostealth, slipstream_black, vortex
+  exterior = "Sun Soaked",
+  interior = "white",
+  wheel = "SlipStream Black",
 }) {
   return (
     <>
       {/* Exterior Image */}
       <Image
-        src={config[color].wheels[wheel]}
+        src={configs[exterior].wheels[wheel]}
         width="0"
         height="0"
         sizes="100vw"
@@ -19,8 +18,10 @@ function Preview({
         alt="Aerostealth"
       />
       {/* Description */}
-      <div className="py-3">
-        <h3 className="font-bold text-xl text-blue-950">{config[color].finish}</h3>
+      <div className="py-4">
+        <h3 className="font-bold text-xl text-blue-950">
+          {configs[exterior].finish}
+        </h3>
         <p>A mysterious, seductive black with a metallic blue shimmer.</p>
       </div>
 
